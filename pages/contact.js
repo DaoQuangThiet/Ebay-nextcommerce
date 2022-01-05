@@ -31,6 +31,7 @@ import Banner from '../assets/img/banner_page.png';
   },
 
   rightTextPage: {
+    paddingTop:"12px",
     float: "right",
     "@media (max-width: 768px)": {
       float: "inherit"

@@ -10,7 +10,7 @@ import { Container } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import Link from "next/link";
 
-
+const colorHover = '#40c6ff';
 const useStyles = makeStyles({
   dealsOfDay: {
     display: "flex",
@@ -81,8 +81,43 @@ const useStyles = makeStyles({
       color: "#fff",
       transition: 'all 0.25s',
     }
-  }
-
+  },
+  nameProSales: {
+    fontFamily: 'Mulish,sans-serif',
+    fontSize: '19px',
+    fontWeight: 'bold',
+    color: '#444',
+    marginBottom: '10px',
+  },
+  titleHome: {
+    fontFamily: 'Merriweather,sans-serif',
+    color: '#444444',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: '30px 0px 25px 0px',
+    '& span': {
+      position: 'relative',
+      display: 'inline-block',
+      '&::after': {
+        position: 'absolute',
+        content: '""',
+        width: '15px',
+        height: '1px',
+        left: '-30px',
+        top: '18px',
+        backgroundColor: `${colorHover}`,
+      },
+      '&::before': {
+        position: 'absolute',
+        content: '""',
+        width: '15px',
+        height: '1px',
+        right: '-30px',
+        top: '18px',
+        backgroundColor: `${colorHover}`,
+      }
+    }
+  },
 });
 export default function DealsOfDay() {
   const classes = useStyles();
@@ -96,31 +131,9 @@ export default function DealsOfDay() {
             alignItems: "center",
           }}
         >
-          <Box
-            style={{
-              width: 15,
-              height: 1,
-              backgroundColor: "rgb(64,198,255)",
-              marginRight: 20,
-            }}
-          />
-          <Typography
-            style={{
-              fontSize: 24,
-              fontWeight: "bold",
-              color: "#444",
-            }}
-          >
-            DEALS OF DAY
+          <Typography className={classes.titleHome}>
+            <span>DEALS OF DAY</span>
           </Typography>
-          <Box
-            style={{
-              width: 15,
-              height: 1,
-              backgroundColor: "rgb(64,198,255)",
-              marginLeft: 20,
-            }}
-          />
         </Box>
         <Box className={classes.layoutDealsDay}>
           <Box className={classes.layoutIteam}>
@@ -143,13 +156,7 @@ export default function DealsOfDay() {
               </Box>
             </Box>
             <Typography style={{ marginLeft: 30 }}>
-              <Typography
-                style={{
-                  fontSize: 18,
-                  fontWeight: "bold",
-                  color: "#444",
-                }}
-              >
+              <Typography className={classes.nameProSales}>
                 Torchiere Floor Lamp
               </Typography>
               <Typography
@@ -166,7 +173,7 @@ export default function DealsOfDay() {
                     textDecoration: "line-through",
                   }}
                 >
-                  $90.00
+                  $71.00
                 </Typography>
                 <Typography style={{ color: "rgb(64,198,255)", margin: 0 }}>$71.00</Typography>
               </Typography>
@@ -202,13 +209,7 @@ export default function DealsOfDay() {
               </Box>
             </Box>
             <Box style={{ marginLeft: 30 }}>
-              <Typography
-                style={{
-                  fontSize: 18,
-                  fontWeight: "bold",
-                  color: "#444",
-                }}
-              >
+              <Typography className={classes.nameProSales} >
                 Condenser Headphone
               </Typography>
               <Typography style={{ fontSize: 20, fontWeight: "bold", display: "flex" }}>

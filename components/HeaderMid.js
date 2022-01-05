@@ -12,13 +12,6 @@ import arrow_down from '../assets/img/arrow_down.png';
 import { makeStyles } from "@material-ui/core";
 import Link from 'next/link';
 import CartIcon from "./cart/CartIcon";
-import SearchForm from "./search/search-form";
-import SearchBox from "./search/search-box";
-import PropTypes from 'prop-types';
-import { useState } from "react";
-import Search from "../pages/search";
-import { useLazyQuery } from "@apollo/client";
-//import { GET_SEARCH_RESULTS_WITH_TOTAL_PAGES } from "../libs/queries/search/get-search-result";
 
 const Item = () => { };
 const useStyle_searchHeader = makeStyles({
@@ -116,30 +109,8 @@ const useStyle_searchHeader = makeStyles({
 
     }
 });
-
-
-
-const HeaderMid = (props, handleSearchForm) => {
-
-
-    const [searchQuery, setSearchQuery] = useState('');
-    const [searchError, setSearchError] = useState('');
-    const [queryResultPosts, setQueryResultPosts] = useState({});
-    const [showResultInfo, setShowResultInfo] = useState(false)
-
-    // const [fetchPosts, { loading }] = useLazyQuery(GET_SEARCH_RESULTS_WITH_TOTAL_PAGES, {
-    //     notifyOnNetworkStatusChange: true,
-    //     onCompleted: (data) => {
-    //         setQueryResultPosts(data?.posts ?? {});
-    //         setShowResultInfo(true);
-    //     },
-    //     onError: (error) => {
-    //         setSearchError(error?.graphQLErrors ?? '');
-    //     }
-    // });
-
-    const classes = useStyle_searchHeader();
-    console.log('searchQuery', searchQuery);
+const HeaderMid = (props) => {
+    const classes = useStyle_searchHeader()
     return (
         <AppProvider>
             <div className={classes.HeaderMidItem}>
@@ -171,13 +142,8 @@ const HeaderMid = (props, handleSearchForm) => {
                                             <option value="">|---Kid books</option>
                                             <option value="">|---Movies &amp; TV</option>
                                         </select>
-                                        <input
-                                            type="text"
-                                            placeholder="What are you looking for..."
-                                            value={searchQuery}
-                                            onChange={(event) => setSearchQuery(event?.target?.value)}
-                                        />
-                                        <button type="submit" onClick={handleSearchForm}><SearchOutlinedIcon /></button>
+                                        <input type="text" value="" name="s" id="s" placeholder="What are you looking for..." />
+                                        <button type="submit"><SearchOutlinedIcon /></button>
                                     </form>
                                 </Grid>
                                 <Grid item xs={3} sm={2} md={1}>
@@ -193,19 +159,6 @@ const HeaderMid = (props, handleSearchForm) => {
                 </React.Fragment>
             </div>
         </AppProvider>
-    );
-};
-
-HeaderMid.PropTypes = {
-    searchQuery: PropTypes.string,
-    setSearchQuery: PropTypes.func,
-    handleSearchForm: PropTypes.func
+    )
 }
-
-HeaderMid.defaultProps = {
-    searchQuery: '',
-    setSearchQuery: () => null,
-    handleSearchForm: () => null
-}
-
 export default HeaderMid;

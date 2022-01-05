@@ -31,10 +31,42 @@ const useStyle_sliderHome = makeStyles({
   dotSlider: {
     padding: '0px',
     justifyContent: 'center',
-    marginTop: '-30px',
+    marginTop: '-45px',
     zIndex: 10,
     position: 'relative',
     background: 'transparent',
+    '& div.MuiMobileStepper-dot': {
+      width: '12px',
+      height: '12px',
+      boxShadow: '0 0 0 2px rgb(255 255 255)',
+      backgroundColor: 'rgba(255,255,255,0.3)',
+      border: 'none',
+      borderRadius: '50%',
+      margin: '0px 7px',
+      position: 'relative',
+      '&::after': {
+        position: 'absolute',
+        content: '""',
+        width: '6px',
+        height: '6px',
+        borderRadius: '50%',
+        background: '#fff',
+        top: '6px',
+        left: '0px',
+        right: '0px',
+        margin: 'auto',
+        transform: 'translateY(-50%)',
+        display: 'none',
+      },
+      '&:hover': {
+        cursor: 'pointer',
+      },
+      '&.MuiMobileStepper-dotActive': {
+        '&::after': {
+          display: 'block',
+        }
+      }
+    }
   }
 });
 

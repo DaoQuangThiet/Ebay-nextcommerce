@@ -141,7 +141,7 @@ const ResponsiveAppBar = () => {
             </Link>
           </li>
           <li className={classes.navitem}>
-            <Link href="/myacout">
+            <Link href="/myaccount">
               <a className={classes.navlink}>My Account</a>
             </Link>
           </li>

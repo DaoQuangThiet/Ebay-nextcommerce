@@ -42,6 +42,7 @@ const useStyles = makeStyles({
     
       rightTextPage: {
         float: "right",
+        paddingTop:"12px",
         "@media (max-width: 768px)": {
           float: "inherit"
         }

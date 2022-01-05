@@ -55,5 +55,10 @@ const styles = {
     marginRight: 15,
   },
   value: { margin: 0, fontSize: 20, fontWeight: "bold", color: "#666" },
-  label: { margin: 0, fontSize: 12 },
+  label: {
+    margin: 0,
+    fontSize: 12,
+    color: '#444',
+    fontWeight: 'bold',
+  },
 };

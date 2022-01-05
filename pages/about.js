@@ -11,6 +11,7 @@ import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PublicIcon from "@mui/icons-material/Public";
 import Banner from '../assets/img/banner_page.png';
+import AboutTeam from '../assets/img/aboutpng.png';
 
 
 const useStyles = makeStyles({
@@ -33,6 +34,8 @@ const useStyles = makeStyles({
 
   rightTextPageAbout: {
     float: "right",
+    paddingTop:"12px",
+    paddingTop:"12px",
     "@media (max-width: 768px)": {
       float: "inherit"
     }
@@ -263,7 +266,7 @@ export default function About() {
             others.
           </Typography>
         </Box>
-        <Box sx={{ textAlign: "center" }}>
+        <Box sx={{ textAlign: "center",marginTop:"80px" }}>
           <Typography
             sx={{ fontWeight: "700", lineHeight: "32px" }}
             component="h4"
@@ -291,7 +294,7 @@ export default function About() {
                 <Box className={classes.logo}>
                   <img
                     className={classes.avartar}
-                    src="http://solution.cmsmart.net/wp_multistore/ebay/wp-content/uploads/2016/12/aboutteam04.jpg"
+                    src={AboutTeam.src}
                     alt="Philip Demarco"
                   />
                 </Box>
@@ -325,7 +328,7 @@ export default function About() {
                 <Box className={classes.logo}>
                   <img
                     className={classes.avartar}
-                    src="http://solution.cmsmart.net/wp_multistore/ebay/wp-content/uploads/2016/12/aboutteam04.jpg"
+                    src={AboutTeam.src}
                     alt="Philip Demarco"
                   />
                 </Box>
@@ -361,7 +364,7 @@ export default function About() {
                 <Box className={classes.logo}>
                   <img
                     className={classes.avartar}
-                    src="http://solution.cmsmart.net/wp_multistore/ebay/wp-content/uploads/2016/12/aboutteam04.jpg"
+                    src={AboutTeam.src}
                     alt="Philip Demarco"
                   />
                 </Box>
@@ -395,7 +398,7 @@ export default function About() {
                 <Box className={classes.logo}>
                   <img
                     className={classes.avartar}
-                    src="http://solution.cmsmart.net/wp_multistore/ebay/wp-content/uploads/2016/12/aboutteam04.jpg"
+                    src={AboutTeam.src}
                     alt="Philip Demarco"
                   />
                 </Box>

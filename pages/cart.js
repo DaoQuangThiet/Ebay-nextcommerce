@@ -16,6 +16,7 @@ const useStyles = makeStyles({
       },
     
       titlePage: {
+        
         display: "flex",
         paddingTop: "75px",
         paddingBottom: "75px",
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
       },
     
       rightTextPage: {
+        paddingTop:"12px",
         float: "right",
         "@media (max-width: 768px)": {
           float: "inherit"

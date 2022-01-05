@@ -18,18 +18,18 @@ const useStyles_category_meta = makeStyles({
 });
 
 const CategoriesCarousel = ({ gallery }) => {
-    const classes = useStyles_category_meta();
-
-
-    if (isEmpty(gallery) || !isArray(gallery)) {
-        return null;
-    }
-
     const activeIndexRef = useRef({ activeIndex: 0 });
     const slideRef = useRef(0);
     const [slide, setSlide] = useState(0);
     const [restartSlide, setRestartSlide] = useState(0);
     const { activeIndex } = activeIndexRef.current;
+    const classes = useStyles_category_meta();
+
+
+
+    if (isEmpty(gallery) || !isArray(gallery)) {
+        return null;
+    }
 
     /**
      * Change to next slide.
@@ -45,18 +45,18 @@ const CategoriesCarousel = ({ gallery }) => {
          * and all slides are finished playing,
          * set the activeIndex to one and restart the slide from start.
          */
-        // if (activeIndexRef.current.activeIndex === gallery.length - 1) {
+        if (activeIndexRef.current.activeIndex === gallery.length - 1) {
 
-        //     activeIndexRef.current.activeIndex = 0;
-        //     setRestartSlide(restartSlide + 1);
+            activeIndexRef.current.activeIndex = 0;
+            setRestartSlide(restartSlide + 1);
 
-        // } else {
+        } else {
 
-        //     // If its not the last slide increment active index by one.
-        //     activeIndexRef.current.activeIndex =
-        //         activeIndexRef.current.activeIndex + 1;
+            // If its not the last slide increment active index by one.
+            activeIndexRef.current.activeIndex =
+                activeIndexRef.current.activeIndex + 1;
 
-        // }
+        }
 
         slideRef.current = slideRef.current + 1;
         setSlide(slideRef.current);
@@ -72,7 +72,7 @@ const CategoriesCarousel = ({ gallery }) => {
                         const opacity = (activeIndex === index || 1 === gallery.length) ? 'opacity-10' : 'opacity-0';
                         return (
 
-                            <span className={classes.category_meta_name}> {item.name},</span>
+                            <span className={classes.category_meta_name} key={item}> {item.name},</span>
 
                         )
                     })

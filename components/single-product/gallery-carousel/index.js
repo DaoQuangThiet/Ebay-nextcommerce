@@ -26,16 +26,16 @@ const useStyle_ImagesThumbnail = makeStyles({
 });
 
 const GalleryCarousel = ({ gallery }) => {
-    const classes = useStyle_ImagesThumbnail()
-    if (isEmpty(gallery) || !isArray(gallery)) {
-        return null;
-    }
-
     const activeIndexRef = useRef({ activeIndex: 0 });
     const slideRef = useRef(0);
     const [slide, setSlide] = useState(0);
     const [restartSlide, setRestartSlide] = useState(0);
     const { activeIndex } = activeIndexRef.current;
+    const classes = useStyle_ImagesThumbnail()
+    if (isEmpty(gallery) || !isArray(gallery)) {
+        return null;
+    }
+
 
     /**
      * Change to next slide.
@@ -51,18 +51,18 @@ const GalleryCarousel = ({ gallery }) => {
          * and all slides are finished playing,
          * set the activeIndex to one and restart the slide from start.
          */
-        // if (activeIndexRef.current.activeIndex === gallery.length - 1) {
+        if (activeIndexRef.current.activeIndex === gallery.length - 1) {
 
-        //     activeIndexRef.current.activeIndex = 0;
-        //     setRestartSlide(restartSlide + 1);
+            activeIndexRef.current.activeIndex = 0;
+            setRestartSlide(restartSlide + 1);
 
-        // } else {
+        } else {
 
-        //     // If its not the last slide increment active index by one.
-        //     activeIndexRef.current.activeIndex =
-        //         activeIndexRef.current.activeIndex + 1;
+            // If its not the last slide increment active index by one.
+            activeIndexRef.current.activeIndex =
+                activeIndexRef.current.activeIndex + 1;
 
-        // }
+        }
 
         slideRef.current = slideRef.current + 1;
         setSlide(slideRef.current);

@@ -22,44 +22,9 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ChairIcon from '@mui/icons-material/Chair';
 import BookIcon from '@mui/icons-material/Book';
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { gql } from "@apollo/client";
+
 // makestyle
 import { makeStyles } from "@material-ui/core";
-
-
-const PRODUCT_QUERY = gql`query Product($cat:String! ){
-  first:products(first: 12,where: {category: $cat}) {
-    nodes {
-      id
-      databaseId
-      name
-      description
-      slug
-      image {
-        uri
-        srcSet
-        sourceUrl
-      }
-      ... on SimpleProduct {
-        price
-        regularPrice
-        salePrice
-      }
-      ... on VariableProduct {
-        price
-        regularPrice
-        salePrice
-        variations {
-          nodes {
-            price
-          }
-        }
-      }
-    }
-  }
-  }`;
 
 const colorHover = '#40c6ff';
 const useStyle_category_header = makeStyles({
@@ -177,11 +142,6 @@ export default function MenuListComposition() {
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
-  const router = useRouter();
-  const handleSubmit = (value) => {
-    //console.log(value);
-    router.push(`?cat=${value}`);
-  };
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
@@ -239,13 +199,9 @@ export default function MenuListComposition() {
                     <ListItemIcon>
                       <HomeIcon />
                     </ListItemIcon>
-                    <Link href="/">
-                      <a>
-                        Homepage
-                      </a>
-                    </Link>
+                    Homepage
                   </MenuItem>
-                  <MenuItem onClick={() => handleSubmit(`Computer`)}>
+                  <MenuItem onClick={handleClose}>
                     {" "}
                     <ListItemIcon>
                       <PushPinIcon />
@@ -324,19 +280,4 @@ export default function MenuListComposition() {
     </Box>
 
   );
-}
-
-export async function getServerSideProps({ query }) {
-  const cat = query.cat ? query.cat : "";
-  const result = await client.query({
-    query: PRODUCT_QUERY,
-    variables: {
-      cat
-    },
-  });
-  return {
-    props: {
-      products: result.data.first.nodes,
-    },
-  };
 }

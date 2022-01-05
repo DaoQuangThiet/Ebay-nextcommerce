@@ -28,6 +28,7 @@ import { AppProvider } from '../components/context/Appcontext';
 import DealsOfDay from '../components/DealsOfDay';
 import Tab from '../components/tab';
 import TabSeller from '../components/tabSeller';
+import Logo from '../components/tabsLogo';
 
 const PRODUCT_QUERY = gql`query Product($cat:String!, $cat1:String! ){
   first:products(first: 8,where: {category: $cat}) {
@@ -107,7 +108,8 @@ const Home = (props) => {
           </Grid>
         </Container>
         <SellerImageList />
-        <NameForm />
+        <Logo/>
+        <NameForm/>
       </div>
     </AppProvider>
   )

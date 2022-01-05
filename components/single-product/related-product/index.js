@@ -3,15 +3,16 @@ import { useState, useRef } from 'react';
 
 const RelatedProduct = ({ gallery }) => {
 
-    if (isEmpty(gallery) || !isArray(gallery)) {
-        return null;
-    }
-
     const activeIndexRef = useRef({ activeIndex: 0 });
     const slideRef = useRef(0);
     const [slide, setSlide] = useState(0);
     const [restartSlide, setRestartSlide] = useState(0);
     const { activeIndex } = activeIndexRef.current;
+
+    if (isEmpty(gallery) || !isArray(gallery)) {
+        return null;
+    }
+
 
     /**
      * Change to next slide.

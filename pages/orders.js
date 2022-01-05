@@ -69,6 +69,7 @@ const useStyles = makeStyles({
       },
     
       rightTextPage: {
+        paddingTop:"12px",
         float: "right",
         "@media (max-width: 768px)": {
           float: "inherit"
@@ -76,8 +77,8 @@ const useStyles = makeStyles({
       },
     main_order:{
         marginBottom:"50px",
-        paddingLeft:"60px",
-        paddingRight:"60px",
+        paddingLeft:"15px",
+        paddingRight:"15px",
         display:"flex",
         '@media (max-width: 1024px)': {
             display:"block"
@@ -94,8 +95,8 @@ const useStyles = makeStyles({
         border:"1px solid rgba(0, 0, 0, 0.12)", 
         padding:"25px", 
         marginTop:"50px",
-        marginLeft:"20px",
-        marginRight:"20px",
+        marginLeft:"10px",
+        marginRight:"10px",
         '@media (max-width: 700px)': {
             marginLeft:"0px",
         marginRight:"0px",
@@ -120,6 +121,7 @@ const useStyles = makeStyles({
     },
     stepperscroll:{
         marginBottom:"50px",
+        overflow:"hidden",
         '@media (max-width: 800px)': {
             overflowX:"scroll",
             with:"100%"
@@ -130,12 +132,18 @@ const useStyles = makeStyles({
         textAlign: "center",
         position: "relative",
         marginTop: "20px",
+        overflow:"hidden",
     },
     progressbar:{
         marginBottom: "30px",
         overflow: "hidden",
         color: "black",
         display:"contents",
+        '@media (max-width: 700px)': {
+
+            margin:"0",
+            padding:"0"
+        },
        
         '& li':{
             listStyleType: "none",
@@ -144,6 +152,10 @@ const useStyles = makeStyles({
             float: "left",
             position: "relative",
             fontWeight: "400",
+            '@media (max-width: 700px)':{
+                float:"inherit",
+                width:"auto"
+            },
             '&:before':{
                 width: "30px",
                 height: "30px",
@@ -155,6 +167,9 @@ const useStyles = makeStyles({
                 borderRadius: "50%",
                 margin: "0 auto 15px auto",
                 padding: "5px",
+                '@media (max-width: 700px)': {
+                    margin: "0 auto 50px auto",
+                },
             },
             '&:after':{
                 content: '""',
@@ -165,6 +180,13 @@ const useStyles = makeStyles({
                 left: "0",
                 top: "25px",
                 zIndex: "-1",
+                '@media (max-width: 700px)': {
+                    height: "100%",
+                    width: "2px",
+                    
+                    bottom:0,
+                    left:"inherit",
+                }
             }
         }
     
@@ -208,6 +230,21 @@ const useStyles = makeStyles({
             background:"#fff",
         }
     },
+    textStep:{
+        '@media (max-width: 700px)': {
+            position:"absolute",
+            bottom:"-45px",
+            left:"0px",
+            right:"0px",
+            margin:"auto",
+        }
+    },
+    buttonOrder:{
+        background: "#b7d7f7",
+        '@media (max-width:450px)':{
+            fontSize:"12px"
+        }
+    }
 
 });
 const Input = styled("input")({
@@ -327,7 +364,7 @@ export default function Myorder() {
                 <MenuList>
                     <MenuItem>
                     <ListItemText>Order#21</ListItemText>
-                    <Button sx={{ background: "#b7d7f7" }}>Order Received</Button>
+                    <Button className={classes.buttonOrder}>Order Received</Button>
                     </MenuItem>
                     <Divider />
                     <MenuItem>
@@ -362,7 +399,7 @@ export default function Myorder() {
                 <MenuList>
                     <MenuItem>
                     <ListItemText>Order#21</ListItemText>
-                    <Button sx={{ background: "#b7d7f7" }}>Order Received</Button>
+                    <Button className={classes.buttonOrder}>Order Received</Button>
                     </MenuItem>
                     <Divider />
                     <MenuItem>
@@ -400,15 +437,17 @@ export default function Myorder() {
                 <List>
                     <ListItem disableGutters>
                     <ListItemText>
-                        <Typography variant="h5"> OrderDetails - KN72GQ</Typography>
+                        <Typography variant="h6"> OrderDetails - KN72GQ</Typography>
                     </ListItemText>
-                    <IconButton>
-                        <SentimentVeryDissatisfiedIcon />{" "}
-                        <Typography >add for refund</Typography>
-                    </IconButton>
-                    <IconButton>
-                        <VisibilityIcon /> <Typography>add for refund</Typography>
-                    </IconButton>
+                    <Box>
+                        <IconButton>
+                            <SentimentVeryDissatisfiedIcon />{" "}
+                            <Typography >add for refund</Typography>
+                        </IconButton>
+                        <IconButton>
+                            <VisibilityIcon /> <Typography>add for refund</Typography>
+                        </IconButton>
+                    </Box>
                     </ListItem>
                 </List>
                 <Divider />
@@ -463,44 +502,45 @@ export default function Myorder() {
                     <form className={classes.form}>
 						<ul  className={classes.progressbar}>
 							<li   className={classes.step1}>
-								<strong>Order Received</strong>
+								<strong className={classes.textStep}>Order Received</strong>
 							</li>
-							<li className={classes.step2} ><strong>Order Processing</strong></li>
-							<li className={classes.step3} ><strong>Ready To Dispatch</strong></li>
-							<li className={classes.step4} ><strong>Order Dispatched</strong></li>
-                            <li className={classes.step5} ><strong>At Local Facility</strong></li>
+							<li className={classes.step2} ><strong className={classes.textStep}>Order Processing</strong></li>
+							<li className={classes.step3} ><strong className={classes.textStep}>Ready To Dispatch</strong></li>
+							<li className={classes.step4} ><strong className={classes.textStep}>Order Dispatched</strong></li>
+                            <li className={classes.step5} ><strong className={classes.textStep}>At Local Facility</strong></li>
 						</ul>
 					</form>
                 </Box>
-              
-                <TableContainer component={Paper} >
-                    <Table  aria-label="a dense table">
-                    <TableHead>
-                        <TableRow sx={{background:"rgba(0, 0, 0, 0.12)"}}>
-                        <TableCell>Iteam</TableCell>
-                        <TableCell align="right">Quantity</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                        <TableRow
-                            key={row.image}
-                            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                <Box sx={{display:"flex"}}>
-                            <img src={row.image} className={classes.imageOrder}></img>
-                            <Typography>{row.name}</Typography> 
-                            </Box>
-                            </TableCell>
-                            <TableCell align="right">{row.quantity}</TableCell>
-                            <TableCell align="right">{row.price}</TableCell>
-                        </TableRow>
-                        ))}
-                    </TableBody>
-                    </Table>
-                </TableContainer>
+                <Box className={classes.tableProduct}>
+                    <TableContainer component={Paper} >
+                        <Table  aria-label="a dense table">
+                        <TableHead>
+                            <TableRow sx={{background:"rgba(0, 0, 0, 0.12)"}}>
+                            <TableCell>Iteam</TableCell>
+                            <TableCell align="right">Quantity</TableCell>
+                            <TableCell align="right">Price</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                            <TableRow
+                                key={row.image}
+                                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    <Box sx={{display:"flex"}}>
+                                <img src={row.image} className={classes.imageOrder}></img>
+                                <Typography>{row.name}</Typography> 
+                                </Box>
+                                </TableCell>
+                                <TableCell align="right">{row.quantity}</TableCell>
+                                <TableCell align="right">{row.price}</TableCell>
+                            </TableRow>
+                            ))}
+                        </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Box>
                 </Box>
                 </Box>
               </Grid>

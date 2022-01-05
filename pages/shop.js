@@ -73,6 +73,7 @@ const useStyles_pageShop = makeStyles(theme => ({
 
   rightTextPage: {
     float: "right",
+    paddingTop:"12px",
     "@media (max-width: 768px)": {
       float: "inherit"
     }
@@ -130,7 +131,10 @@ const useStyles_pageShop = makeStyles(theme => ({
     }
   },
   categoryText:{
-    marginLeft:"-15px",
+    paddingLeft:"0px",
+    '&:hover':{
+      backgroundColor :"#fff !important",
+    }
   },
 }))
 

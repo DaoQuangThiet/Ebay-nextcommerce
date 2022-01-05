@@ -13,7 +13,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import Paper  from '@mui/material/Paper';
+import Paper from '@mui/material/Paper';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -37,30 +37,30 @@ import TableRow from '@mui/material/TableRow';
 // import { isEmpty } from 'lodash'
 
 const useStyles_cart = makeStyles(theme => ({
-    wooNextCartWrapper:{
-        display:"flex",
+    wooNextCartWrapper: {
+        display: "flex",
         "@media (max-width: 768px)": {
             display: "block"
-          }
+        }
     },
-    buttonCheckout:{
-        textAlign:"center",
-        marginTop:"10px",
-        marginBottom:"15px",
-        paddingBottom:"20px"
+    buttonCheckout: {
+        textAlign: "center",
+        marginTop: "10px",
+        marginBottom: "15px",
+        paddingBottom: "20px"
     },
-    cartTotal:{
-        background:"rgb(231, 235, 240)",
-        marginTop:"30px"
+    cartTotal: {
+        background: "rgb(231, 235, 240)",
+        marginTop: "30px"
     },
-    tableCart:{
-        paddingRight:"50px"
+    tableCart: {
+        paddingRight: "50px"
     },
-    buttonContinue:{
-        marginTop:"20px"
+    buttonContinue: {
+        marginTop: "20px"
     },
-    cartTotalLeft:{
-        paddingTop:"16px"
+    cartTotalLeft: {
+        paddingTop: "16px"
     }
 
 }));
@@ -123,7 +123,7 @@ const CartItemsContainer = () => {
      */
     const handleRemoveProductClick = (event, productId) => {
         const updatedCart = removeItemFromCart(productId);
-        
+
         setCart(updatedCart);
     };
     // Clear the entire cart.
@@ -147,37 +147,37 @@ const CartItemsContainer = () => {
     const classes = useStyles_cart();
     return (
         <div className={classes.cartMain}>
-            {cart? (
+            {cart ? (
                 <div className={classes.wooNextCartWrapper}>
                     <Grid item lg={8}>
                         <Box className={classes.tableCart}>
-                            <TableContainer  className="table table-hover">
+                            <TableContainer className="table table-hover">
                                 <Table>
                                     <TableHead>
                                         <TableRow className={classes.cartheadercontainer}>
                                             <TableCell className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6"> Delete</Typography></TableCell>
-                                            <TableCell   className={classes.woo_next_cart_heading}scope="col" ><Typography component="h6" variant="h6">Product </Typography></TableCell>
-                                            <TableCell  className={classes.woo_next_cart_heading} scope="col" />
+                                            <TableCell className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Product </Typography></TableCell>
+                                            <TableCell className={classes.woo_next_cart_heading} scope="col" />
                                             <TableCell className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Price</Typography></TableCell>
-                                            <TableCell  className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Quantity</Typography></TableCell>
-                                            <TableCell  className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Total</Typography></TableCell>
+                                            <TableCell className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Quantity</Typography></TableCell>
+                                            <TableCell className={classes.woo_next_cart_heading} scope="col" ><Typography component="h6" variant="h6">Total</Typography></TableCell>
                                         </TableRow>
                                     </TableHead>
-                                <TableBody>
-                                    {cart?.products?.length && (
-                                        cart.products.map(item => (
-                                            <CartItem
-                                                key={item.productId}
-                                                item={item}
-                                                handleRemoveProductClick={handleRemoveProductClick}
-                                                setCart={setCart}
-                                            />
-                                        ))
-                                    )}
-                                </TableBody>
+                                    <TableBody>
+                                        {cart?.products?.length && (
+                                            cart.products.map(item => (
+                                                <CartItem
+                                                    key={item.productId}
+                                                    item={item}
+                                                    handleRemoveProductClick={handleRemoveProductClick}
+                                                    setCart={setCart}
+                                                />
+                                            ))
+                                        )}
+                                    </TableBody>
                                 </Table>
                             </TableContainer>
-                            <Divider/>
+                            <Divider />
                             <Box className={classes.buttonContinue}>
                                 <Link href="/">
                                     <Button variant="contained">CONTINUE SHOPPING</Button>
@@ -187,58 +187,58 @@ const CartItemsContainer = () => {
                     </Grid>
                     <Grid item lg={4}>
                         <Box className={classes.cartTotalLeft}>
-                    <Typography component="h5" variant="h5">Cart Total</Typography>
-                        <Paper className={classes.cartTotal}>
-                            <List>
-                                <ListItem>
-                                    <ListItemText>
-                                        Subtotal:
-                                    </ListItemText>
-                                    <Typography>${cart.totalProductsPrice}</Typography>
-                                </ListItem>
-                                <Divider/>
-                                <ListItem>
-                                    <ListItemText>
-                                        Shipping:
-                                    </ListItemText>
-                                    <FormControl component="fieldset">
-                                        <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                                            <FormControlLabel value="female" control={<Radio />} label="FreeShipping" />
-                                        </RadioGroup>
+                            <Typography component="h5" variant="h5">Cart Total</Typography>
+                            <Paper className={classes.cartTotal}>
+                                <List>
+                                    <ListItem>
+                                        <ListItemText>
+                                            Subtotal:
+                                        </ListItemText>
+                                        <Typography>${cart.totalProductsPrice}</Typography>
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem>
+                                        <ListItemText>
+                                            Shipping:
+                                        </ListItemText>
+                                        <FormControl component="fieldset">
+                                            <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+                                                <FormControlLabel value="female" control={<Radio />} label="FreeShipping" />
+                                            </RadioGroup>
                                         </FormControl>
-                                </ListItem>
-                                <ListItem>
-                                    <ListItemText>
-                                        Clock Shop:
-                                    </ListItemText>
-                                    <FormControl component="fieldset">
-                                        <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-                                            <FormControlLabel value="female" control={<Radio />} label="Flat Rate" />
-                                        </RadioGroup>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemText>
+                                            Clock Shop:
+                                        </ListItemText>
+                                        <FormControl component="fieldset">
+                                            <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+                                                <FormControlLabel value="female" control={<Radio />} label="Flat Rate" />
+                                            </RadioGroup>
                                         </FormControl>
-                                </ListItem>
-                                <Divider/>
-                                <ListItem>
-                                    <ListItemText>
-                                        Total:
-                                    </ListItemText>
-                                    <Typography>${cart.totalProductsPrice}</Typography>
-                                </ListItem>
-                            </List>
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem>
+                                        <ListItemText>
+                                            Total:
+                                        </ListItemText>
+                                        <Typography>${cart.totalProductsPrice}</Typography>
+                                    </ListItem>
+                                </List>
                                 <Box className={classes.buttonCheckout} >
                                     {/*Proceeed to checkout */}
                                     <Link href="/checkout">
                                         <Button variant="contained">Proceed to checkout</Button>
                                     </Link>
                                 </Box>
-                                
+
                                 {/* <Link href="/checkout">
                                     <Button variant="contained">UPDATE CART</Button>
                                 </Link> */}
-                        
+
                             </Paper>
-                            </Box>
-                        </Grid>
+                        </Box>
+                    </Grid>
                     {/* Display Errors if any */}
                     {/* {requestError ? <div className="row woo-next-cart-total-container mt-5"> {requestError} </div> : ''} */}
                 </div>

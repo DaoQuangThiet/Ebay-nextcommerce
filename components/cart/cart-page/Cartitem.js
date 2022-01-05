@@ -16,6 +16,12 @@ const useStyles_cartItem = makeStyles(theme => ({
     },
     cartelementTotal:{
         color: "rgb(64,198,255)",
+    },
+    cartqtyinput:{
+        width:"50%",
+        height:"40px",
+        paddingLeft:"10px",
+
     }
 
 }));
@@ -70,11 +76,11 @@ const CartItem = ({
             </TableCell>
             {/* QUANTITY */}
             <TableCell className={classes.cartelementInput}>
-                <TextField sx={{width:"70px",paddingLeft:"10px"}}
+                <input className={classes.cartqtyinput}
                     size='small'
                     type="number"
                     min="1"
-                    className="cartqtyinput"
+                   
                     value={productCount}
                     onChange={handleQtyChange}
                 />

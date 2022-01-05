@@ -11,7 +11,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Divider from '@mui/material/Divider';
-import Link from '@mui/material/Link';
+// import Link from 'next/link';
+import { Link } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import { Input } from "@material-ui/core";
 import TabsUnstyled from "@mui/base/TabsUnstyled";
@@ -33,25 +34,26 @@ const useStyles = makeStyles({
     page: {
         marginBottom: "60px",
         minHeight: "200px",
-        backgroundImage:`url(${Banner.src})`,
+        backgroundImage: `url(${Banner.src})`,
         backgroundSize: "cover"
-      },
-    
-      titlePage: {
+    },
+
+    titlePage: {
         display: "flex",
         paddingTop: "75px",
         paddingBottom: "75px",
         "@media (max-width: 768px)": {
-          display: "block"
+            display: "block"
         }
-      },
-    
-      rightTextPage: {
+    },
+
+    rightTextPage: {
+        paddingTop: "12px",
         float: "right",
         "@media (max-width: 768px)": {
-          float: "inherit"
+            float: "inherit"
         }
-      },
+    },
 
 
 
@@ -121,18 +123,18 @@ const useStyles = makeStyles({
         justifyContent: 'center',
 
     },
-    formInput:{
+    formInput: {
         width: "100%",
-        
+
         height: 45,
         '&:focusVisible': {
             outline: ['none']
         },
     },
-    boxinput:{
-        width:"100%",
-        paddingRight:"10px",
-        paddingLeft:"10px"
+    boxinput: {
+        width: "100%",
+        paddingRight: "10px",
+        paddingLeft: "10px"
 
     }
 
@@ -142,45 +144,45 @@ const useStyles = makeStyles({
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const Checkout = () => {
     const classes = useStyles();
-   
+
     let existingCart = localStorage.getItem('woo-next-cart');
     existingCart = JSON.parse(existingCart);
     console.warn(existingCart);
     return (
         <>
-        <Box className={classes.page}>
-        <Container>
-          <Box className={classes.titlePage}>
-            <Grid item lg={6}>
-              <Box>
-                <Typography sx={{ color: "white" }} component="h3" variant="h3">
-                  Checkout
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item lg={6}>
-              <Box className={classes.rightTextPage}>
-                <Breadcrumbs sx={{ color: "white" }} aria-label="breadcrumb">
-                  <Typography
-                    sx={{ color: "white" }}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Home
-                  </Typography>
-                  <Typography
-                    sx={{ color: "white" }}
-                    component="h6"
-                    variant="h6"
-                  >
-                    Checkout
-                  </Typography>
-                </Breadcrumbs>
-              </Box>
-            </Grid>
-          </Box>
-        </Container>
-      </Box>
+            <Box className={classes.page}>
+                <Container>
+                    <Box className={classes.titlePage}>
+                        <Grid item lg={6}>
+                            <Box>
+                                <Typography sx={{ color: "white" }} component="h3" variant="h3">
+                                    Checkout
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item lg={6}>
+                            <Box className={classes.rightTextPage}>
+                                <Breadcrumbs sx={{ color: "white" }} aria-label="breadcrumb">
+                                    <Typography
+                                        sx={{ color: "white" }}
+                                        component="h6"
+                                        variant="h6"
+                                    >
+                                        Home
+                                    </Typography>
+                                    <Typography
+                                        sx={{ color: "white" }}
+                                        component="h6"
+                                        variant="h6"
+                                    >
+                                        Checkout
+                                    </Typography>
+                                </Breadcrumbs>
+                            </Box>
+                        </Grid>
+                    </Box>
+                </Container>
+            </Box>
             <Container>
                 <Box className={classes.mainCheckout}>
                     <Grid iteam lg={8} >
@@ -201,10 +203,10 @@ const Checkout = () => {
                                 </MenuItem>
                             </MenuList>
                             <Box sx={{ display: "flex", padding: "15px" }}>
-                                <Box  className={classes.boxinput} >
+                                <Box className={classes.boxinput} >
                                     <input className={classes.formInput} type="text" />
                                 </Box>
-                                <Box  className={classes.boxinput}>
+                                <Box className={classes.boxinput}>
                                     <input className={classes.formInput} type="text" />
                                 </Box>
                             </Box>
@@ -225,10 +227,10 @@ const Checkout = () => {
                                 </MenuItem>
                             </MenuList>
                             <Box sx={{ display: "flex", padding: "15px" }}>
-                                <Box  className={classes.boxinput} >
+                                <Box className={classes.boxinput} >
                                     <input className={classes.formInput} type="text" />
                                 </Box>
-                                <Box  className={classes.boxinput}>
+                                <Box className={classes.boxinput}>
                                     <input className={classes.formInput} type="text" />
                                 </Box>
                             </Box>
@@ -249,10 +251,10 @@ const Checkout = () => {
                                 </MenuItem>
                             </MenuList>
                             <Box sx={{ display: "flex", padding: "15px" }}>
-                                <Box  className={classes.boxinput} >
+                                <Box className={classes.boxinput} >
                                     <input className={classes.formInput} type="text" />
                                 </Box>
-                                <Box  className={classes.boxinput}>
+                                <Box className={classes.boxinput}>
                                     <input className={classes.formInput} type="text" />
                                 </Box>
                             </Box>
@@ -271,13 +273,13 @@ const Checkout = () => {
                                 </MenuItem>
                             </MenuList>
                             <Box sx={{ display: "flex", padding: "15px" }}>
-                                <Box  className={classes.boxinput} >
+                                <Box className={classes.boxinput} >
                                     <input className={classes.formInput} type="text" />
                                 </Box>
-                                <Box  className={classes.boxinput}>
+                                <Box className={classes.boxinput}>
                                     <input className={classes.formInput} type="text" />
                                 </Box>
-                                <Box  className={classes.boxinput}>
+                                <Box className={classes.boxinput}>
                                     <input className={classes.formInput} type="text" />
                                 </Box>
                             </Box>
@@ -289,7 +291,7 @@ const Checkout = () => {
                         <Box className={classes.payment} >
                             {existingCart?.products?.length && (
                                 existingCart.products.map(item => (
-                                    <MenuItem sx={{ marginBottom: "10px" }}>
+                                    <MenuItem sx={{ marginBottom: "10px" }} key={item}>
                                         <ListItemText>
                                             <Typography variant="div" >
                                                 {item.qty} x {item.name}
@@ -441,12 +443,12 @@ const Checkout = () => {
 
                             </Paper>
                             <Stack direction="row" spacing={2} sx={{ width: "100%" }}>
-                                <Link href="/thankiu" sx={{width:"100%",textDecoration:"none"}}>
-                                <Button  sx={{ width: "100%" }} variant="contained" color="success">
-                                    Success
-                                </Button>
+                                <Link href="/thankiu" sx={{ width: "100%", textDecoration: "none" }}>
+                                    <Button sx={{ width: "100%" }} variant="contained" color="success">
+                                        Success
+                                    </Button>
                                 </Link>
-                                
+
                             </Stack>
                         </Box>
                     </Grid>

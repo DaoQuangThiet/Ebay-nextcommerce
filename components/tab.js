@@ -6,6 +6,8 @@ import Link from "@mui/material/Link";
 import { Button } from '@mui/material';
 import { useRouter } from "next/router";
 
+
+const colorHover = '#40c6ff';
 const useStyles = makeStyles({
   product: {
     marginTop: "50px",
@@ -67,7 +69,36 @@ const useStyles = makeStyles({
       transition: "width 2s"
     }
 
-  }
+  },
+  titleHome: {
+    fontFamily: 'Merriweather,sans-serif',
+    color: '#444444',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    margin: '30px 0px 25px 0px',
+    '& span': {
+      position: 'relative',
+      display: 'inline-block',
+      '&::after': {
+        position: 'absolute',
+        content: '""',
+        width: '15px',
+        height: '1px',
+        left: '-30px',
+        top: '18px',
+        backgroundColor: `${colorHover}`,
+      },
+      '&::before': {
+        position: 'absolute',
+        content: '""',
+        width: '15px',
+        height: '1px',
+        right: '-30px',
+        top: '18px',
+        backgroundColor: `${colorHover}`,
+      }
+    }
+  },
 });
 
 export default function Tab() {
@@ -81,7 +112,7 @@ export default function Tab() {
     <>
       <Box className={classes.product}>
         <Box className={classes.tabsProduct}>
-          <Typography className={classes.title}>NEW PRODUCT</Typography>
+          <Typography className={classes.titleHome}><span>NEW PRODUCT</span></Typography>
           <Box className={classes.tabsTitle}>
             <Box className={classes.tabs}>
               <Button className={classes.tabText} onClick={() => handleSubmit(`SmartPhone`)}> All Product </Button>
